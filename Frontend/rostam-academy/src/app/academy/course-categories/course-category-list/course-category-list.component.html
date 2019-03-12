@@ -1,0 +1,18 @@
+<button kendoButton [icon]="'add'" 
+        (click)="addRoot()"
+        *needPermission="'CreateCourseCategory'">Add Root</button>
+
+        
+<kendo-treeview kendoTreeViewExpandable 
+    [nodes]="courseCategories" textField="title"
+    [children]="fetchChildren"  [hasChildren]="hasChildren">
+
+    <ng-template kendoTreeViewNodeTemplate let-dataItem>
+        {{dataItem.title}}
+        <span class="k-icon k-i-edit pointer" (click)="edit(dataItem)"></span>
+        <span class="k-icon k-i-delete pointer" (click)="delete(dataItem)" *needPermission="'DeleteCourseCategory'"></span>
+        <span class="k-icon k-i-add pointer" (click)="addChild(dataItem)"></span>
+    </ng-template>
+</kendo-treeview>
+
+<div kendoDialogContainer></div>
