@@ -20,7 +20,7 @@ export class CourseCategoryComponent implements OnInit {
             this.model = new CourseCategory();
     }
 
-    public save(): void {
+    public save(): void  {
         this.service.save(this.model).subscribe(a=>{
             this.dialog.close(OK);
         });
